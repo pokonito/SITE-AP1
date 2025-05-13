@@ -1,0 +1,87 @@
+/* Style général pour header */
+header {
+    background-color: #004080;
+    /* Couleur moderne et professionnelle */
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Ombre subtile pour un effet de flottement */
+    margin-bottom: 20px;
+}
+
+/* Navbar en bas */
+.navbar {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    /* Ligne de séparation subtile */
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    background-image: url('logo.png');
+    /* Utiliser le nouveau logo */
+    background-size: contain;
+    /* Adapter la taille */
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 120px;
+    /* Ajuster la largeur du logo */
+    height: 40px;
+    /* Ajuster la hauteur du logo */
+    text-indent: -9999px;
+    /* Masquer le texte Stagea si nécessaire */
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffcc00;
+    /* Accent lumineux pour le lien actif ou survolé */
+}
+
+.nav-link.active {
+    color: #ffcc00;
+    /* Jaune vif pour l'onglet actif */
+    font-weight: normal;
+    /* Garder le texte léger */
+}
+
+/* Centrage de la barre de recherche */
+.navbar form {
+    margin: auto;
+    max-width: 400px;
+}
+
+.navbar input {
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.navbar button {
+    border-radius: 20px;
+    background-color: #ffcc00;
+    border: none;
+    color: #004080;
+    padding: 10px 20px;
+}
+
+/* Animation pour une modernité subtile */
+.navbar .nav-link,
+.navbar button {
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
