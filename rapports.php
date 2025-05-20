@@ -57,26 +57,45 @@ if (!isset($_SESSION["login"])) {
 
                 <!-- Liste des posts -->
                 <?php
-                $queryMailVerif = 'SELECT * FROM cr join utilisateur u on cr.num_utilisateur = u.num WHERE cr.num_utilisateur = :id';
-                $req = $bdd->prepare($queryMailVerif);
-                $req->execute(['id' => $_SESSION['num']]);
+                if ($_SESSION["type"] == 1) {
+                    $queryCr = 'SELECT * FROM cr';
+                    $req = $bdd->prepare($queryCr);
+                    $req->execute();
+
+                    $queryEleves = 'SELECT * FROM utilisateur WHERE type = 0';
+                    $req2 = $bdd->prepare($queryEleves);
+                    $req2->execute();
+                    $resultEleves = $req2->fetchAll();
+
+                    $nbEleves = count($resultEleves);
+                } else {
+                    $queryCr = 'SELECT * FROM cr WHERE cr.num_utilisateur = :num';
+                    $req = $bdd->prepare($queryCr);
+                    $req->execute(['num' => $_SESSION['num']]);
+                }
+
                 $results = $req->fetchAll();
+                $nbRapports = count($results);
 
                 if ($results) {
                     foreach ($results as $result) {
                 ?>
                         <div class="bg-white rounded-lg shadow transition hover:shadow-lg p-4 mb-4 border-l-4 border-blue-500">
                             <div class="flex flex-col md:flex-row md:items-center">
-                                <div class="md:w-2/3">
+                                <div class="md:w-4/6">
                                     <h5 class="text-lg font-semibold">
                                         <a href="#" class="text-blue-600 hover:underline">
                                             <?php echo $result["description"]; ?>
                                         </a>
                                     </h5>
                                 </div>
-                                <div class="mt-2 md:mt-0 md:w-1/3 text-gray-600 text-center">
+                                <div class="mt-2 md:mt-0 md:w-1/6 text-gray-600 text-center">
                                     <i class="ion-ios-eye-outline text-xl"></i>
-                                    <span class="block text-sm"><?php echo $result["vu"]; ?> Vues</span>
+                                    <span class="block text-sm"><?php echo $result["vu"]; ?></span>
+                                </div>
+                                <div class="mt-2 md:mt-0 md:w-1/6 text-gray-600 text-center">
+                                    <i class="ion-ios-calendar-outline text-xl"></i>
+                                    <span class="block text-sm"><?php echo $result["datetime"]; ?></span>
                                 </div>
                             </div>
                         </div>
@@ -87,30 +106,38 @@ if (!isset($_SESSION["login"])) {
             </div>
 
             <!-- Sidebar -->
-            <div class="lg:w-1/4">
-                <div class="sticky top-20">
-                    <a href="#"
-                        class="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold rounded py-4 mb-6">
-                        Créer un Rapport
-                    </a>
+            <div class="lg:w-1/4" <?php if ($_SESSION["type"] == 1) { ?> <?php echo $nbEleves ?> style="margin-top: 22px;" <?php } ?>>
+                <div class="sticky top-10">
+                    <?php
+                    if ($_SESSION["type"] == 0) {
+                    ?>
+                        <a href="#"
+                            class="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold rounded py-4 mb-6">
+                            Créer un Rapport
+                        </a>
+                    <?php
+                    }
+                    ?>
 
                     <!-- Stats -->
                     <div class="bg-white rounded-lg shadow text-sm">
                         <h4 class="px-4 py-4 text-lg font-bold text-gray-700 border-b">
-                            Stats
+                            Statistiques
                         </h4>
                         <div class="grid grid-cols-2 divide-x divide-gray-300 text-center">
+                            <?php
+                            if ($_SESSION["type"] == 1) {
+                            ?>
+                                <div class="py-3">
+                                    <a href="#" class="block text-xl font-bold hover:underline"><?php echo $nbEleves ?></a>
+                                    Élèves
+                                </div>
+                            <?php
+                            }
+                            ?>
                             <div class="py-3 border-b">
-                                <a href="#" class="block text-xl font-bold hover:underline">58</a>
-                                Stages
-                            </div>
-                            <div class="py-3 border-b">
-                                <a href="#" class="block text-xl font-bold hover:underline">1.856</a>
+                                <a href="#" class="block text-xl font-bold hover:underline"><?php echo $nbRapports ?></a>
                                 Rapports
-                            </div>
-                            <div class="py-3">
-                                <a href="#" class="block text-xl font-bold hover:underline">300</a>
-                                Élèves
                             </div>
                         </div>
                     </div>

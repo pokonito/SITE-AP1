@@ -1,6 +1,6 @@
 /* Style général pour header */
 header {
-    background-color: #004080;
+    background-color: #2563EB;
     /* Couleur moderne et professionnelle */
     color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -10,6 +10,7 @@ header {
 
 /* Navbar en bas */
 .navbar {
+    background-color: #004080;
     border-top: 1px solid rgba(255, 255, 255, 0.25);
     /* Ligne de séparation subtile */
     padding: 10px 0;

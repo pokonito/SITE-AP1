@@ -14,13 +14,13 @@ if ($currentPage === 'index' || $currentPage === '') {
 }
 ?>
 
-<ul class="flex justify-center space-x-4 py-4 bg-gray-700 text-white">
+<ul class="flex justify-center space-x-4 py-4">
     <?php foreach ($navItems as $name => $item): ?>
-    <li>
-        <a class="text-lg font-medium transition <?php echo ($item['page'] === $currentPage) ? 'text-yellow-400' : 'text-gray-300 hover:text-yellow-400'; ?>"
-            href="<?php echo $item['link'] ? htmlspecialchars($item['link'] . ".php") : '#'; ?>">
-            <?php echo htmlspecialchars($name); ?>
-        </a>
-    </li>
+        <li>
+            <a class="text-lg font-medium transition <?php echo ($item['page'] === $currentPage) ? 'text-yellow-400' : 'text-gray-300 hover:text-yellow-400'; ?>"
+                href="<?php echo $item['link'] ? htmlspecialchars($item['link'] . ".php") : '#'; ?>">
+                <?php echo htmlspecialchars($name); ?>
+            </a>
+        </li>
     <?php endforeach; ?>
 </ul>

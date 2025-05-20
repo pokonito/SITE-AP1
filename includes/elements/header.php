@@ -1,8 +1,14 @@
-<header class="bg-gray-800 text-white">
+<header>
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
         <!-- Logo à gauche -->
         <div class="flex-shrink-0">
             <a href="index.php" class="text-2xl font-bold">Stagea</a>
+            <a href="index.php" class="text-s">
+                <?php echo 'Espace étudiant';
+                if ($_SESSION["type"] == 1) {
+                    echo 'Espace enseignant';
+                } ?>
+            </a>
         </div>
 
         <!-- Barre de recherche centrée -->

@@ -1,5 +1,5 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 session_destroy();
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ session_destroy();
     <?php include 'includes/elements/head.php'; ?>
 </head>
 
-<body class="bg-gray-100">
+<body>
     <div class="flex items-center justify-center min-h-screen">
         <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
             <h1 class="text-3xl font-bold text-center mb-6">Se connecter</h1>
