@@ -3,8 +3,8 @@
 <html lang="fr">
 
 <?php
-include 'includes/elements/head.php';
-include 'includes/elements/header.php';
+include 'elements/head.php';
+include 'elements/header.php';
 if (!isset($_SESSION["login"])) {
     header("location: connexion.php");
     exit();
@@ -32,6 +32,6 @@ if (!isset($_SESSION["login"])) {
         </div>
     </section>
 </body>
-<?php include 'includes/elements/footer.php'; ?>
+<?php include 'elements/footer.php'; ?>
 
 </html>

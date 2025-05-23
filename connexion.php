@@ -6,14 +6,14 @@ session_destroy();
 <html lang="fr">
 
 <head>
-    <?php include 'includes/elements/head.php'; ?>
+    <?php include 'elements/head.php'; ?>
 </head>
 
 <body>
     <div class="flex items-center justify-center min-h-screen">
         <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
             <h1 class="text-3xl font-bold text-center mb-6">Se connecter</h1>
-            <form action="verifs/verif_connexion.php" method="POST" class="space-y-4">
+            <form action="backend/verif_connexion.php" method="POST" class="space-y-4">
                 <input type="text" name="login" placeholder="Email ou identifiant" required
                     class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <input type="password" name="password" placeholder="Mot de passe" required

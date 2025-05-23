@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <?php include 'includes/elements/head.php'; ?>
+    <?php include 'elements/head.php'; ?>
 </head>
 
 <body class="bg-gray-100">
@@ -10,7 +10,7 @@
     <div class="flex items-center justify-center min-h-screen">
         <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
             <h1 class="text-3xl font-bold text-center mb-6">S'inscrire</h1>
-            <form action="verifs/verif_inscription.php" method="POST" class="space-y-4">
+            <form action="backend/verif_inscription.php" method="POST" class="space-y-4">
                 <!-- Champs Prénom et Nom côte à côte sur grand écran, empilés sur mobile -->
                 <div class="flex flex-col sm:flex-row gap-4">
                     <div class="flex-1">

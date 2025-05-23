@@ -1,6 +1,6 @@
 <?php
-include('../includes/bdd/bdd.php');
-include('../includes/php/functions.php');
+include('../bdd/bdd.php');
+include('../php/functions.php');
 
 $loginType = "";
 

@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <?php include 'includes/elements/head.php'; ?>
+    <?php include 'elements/head.php'; ?>
 </head>
 
 <body class="bg-gray-100">

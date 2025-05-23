@@ -1,5 +1,5 @@
 <?php
-include('../includes/bdd/bdd.php');
+include('../bdd/bdd.php');
 
 // Vérifier l'email
 $queryMailVerif = 'SELECT num FROM utilisateur WHERE email = :email';
@@ -26,7 +26,7 @@ if ($_POST["password"] != $_POST["repassword"]) {
 $login = strtolower(mb_substr($_POST['prenom'], 0, 1) . strtok($_POST['nom'], " "));
 
 // Requête préparée avec des marqueurs nominatifs
-$query = "INSERT INTO utilisateur (nom, prenom, email, login, motdepasse, type, option) VALUES (:nom,  :prenom, :email, :login, :password, :type)";
+$query = "INSERT INTO utilisateur (nom, prenom, email, login, motdepasse, type) VALUES (:nom,  :prenom, :email, :login, :password, :type)";
 
 // Préparation de la requête
 $req = $bdd->prepare($query);

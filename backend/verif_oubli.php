@@ -1,5 +1,5 @@
-<?php 
-include('../includes/bdd/bdd.php');
+<?php
+include('../bdd/bdd.php');
 
 $query = "SELECT num FROM utilisateur WHERE email = :email";
 
@@ -27,22 +27,21 @@ if (!empty($password)) {
     // Exécuter la requete
     $req->execute([
         'code' => hash('sha256', $code),
-        'usable' => 1
+        'usable' => 1,
         'email' => $_POST["email"]
     ]);
 
-    ini_set( 'display_errors', 1 );
-    error_reporting( E_ALL );
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
     $from = "support@stagea.fr";
     $to = $_POST["email"];
     $subject = "Mot de Passe Temporaire";
     $message = "Voici votre mot de passe généré aléatoirement : " . $code . " , utilisez le à la place du mot de passe lors de votre prochaine connexion puis changez le dans votre espace utilisateur";
     $headers = "De :" . $from;
-    mail($to,$subject,$message, $headers);
+    mail($to, $subject, $message, $headers);
     header("location: ../connexion.php?message=Un mail vous a été envoyé, connectez vous avec le code généré");
     exit();
 } else {
     header("location: ../oubli.php?error=Aucun compte n'est associée à cette adresse");
     exit();
 }
-?>
